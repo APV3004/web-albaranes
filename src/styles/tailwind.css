@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos globales con los nuevos colores */
+
+body {
+  @apply bg-background text-textPrimary; /* Fondo azul claro y texto azul brillante */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold text-azulBrillante; /* Títulos en azul brillante */
+}
+
+p {
+  @apply text-sm text-textSecondary; /* Párrafos en gris tenue (puedes cambiarlo a otro color si quieres) */
+}
+
+/* Estilo para botones global */
+button {
+  @apply px-4 py-2 rounded-md text-white bg-azulBrillante hover:bg-azulClaro focus:outline-none focus:ring-2 focus:ring-indigo-500;
+}
+
+/* Enlaces con color azul brillante y hover en azul claro */
+a {
+  @apply text-azulBrillante hover:text-azulClaro;
+}
+
+/* Estilos para formularios */
+input, select, textarea {
+  @apply px-4 py-2 border border-azulBrillante rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none;
+}
+
+/* Estilos para formularios */
+form {
+  @apply space-y-4;
+}
+
+/* Estilo para Header (fondo azul brillante y texto blanco) */
+header {
+  @apply bg-azulBrillante text-white py-4 px-6;
+}
+
+/* Estilo para Barralateral (barra lateral) con fondo azul claro y texto azul brillante */
+aside {
+  @apply bg-azulClaro text-azulBrillante w-64 min-h-screen p-6;
+}
+
+/* Estilo para Footer (fondo azul brillante y texto blanco) */
+footer {
+  @apply bg-azulBrillante text-white p-4 mt-8;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+  .container {
+    @apply px-2 py-4;
+  }
+}
