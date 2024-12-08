@@ -13,6 +13,7 @@ export default function CreateClientPage() {
   const [cif, setCif] = useState('');
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [clientId, setClientId] = useState(null);
   const router = useRouter();
 
   const handleSubmit = async (e) => {
@@ -58,10 +59,8 @@ export default function CreateClientPage() {
       }
 
       const data = await response.json();
+      setClientId(data._id || data.id);
       setSuccessMessage('Cliente creado exitosamente');
-      setTimeout(() => {
-        router.push('/clientes');
-      }, 3000);
     } catch (err) {
       setError(err.message || 'Hubo un problema al crear el cliente');
     }
@@ -71,7 +70,27 @@ export default function CreateClientPage() {
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-bold text-center mb-6">Crear Cliente</h1>
       {error && <p className="text-red-500">{error}</p>}
-      {successMessage && <p className="text-green-500">{successMessage}</p>}
+      {successMessage && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-2xl font-bold mb-4">Cliente creado exitosamente</h2>
+            <div className="flex space-x-4">
+              <button
+                className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
+                onClick={() => router.push('/clientes')}
+              >
+                Ir a la Lista de Clientes
+              </button>
+              <button
+                className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700"
+                onClick={() => router.push(`/crear-proyecto?clientId=${clientId}`)}
+              >
+                Añadir Proyecto
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <form onSubmit={handleSubmit} className="flex justify-center gap-6">
         {/* Rectángulo central para los campos principales */}
