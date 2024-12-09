@@ -1,6 +1,6 @@
-'use client';  // Asegura que este componente se ejecute en el cliente
+'use client'; 
 
-import '../../styles/tailwind.css';  // Asegúrate de que el archivo CSS esté importado correctamente
+import '../../styles/tailwind.css'; 
 
 export default function LoginLayout({ children }) {
   return (

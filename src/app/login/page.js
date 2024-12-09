@@ -1,19 +1,19 @@
-'use client'; // Asegura que este componente se ejecute en el cliente
+'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation'; // Usamos router para redirigir al usuario
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const router = useRouter(); // Usamos router para redirigir al usuario después de login
+  const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://bildy-rpmaya.koyeb.app/api/user/login', {  // URL de la API de login
+      const response = await fetch('https://bildy-rpmaya.koyeb.app/api/user/login', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,10 +30,8 @@ export default function LoginPage() {
       const data = await response.json();
       console.log('Login exitoso:', data);
 
-      // Guardar token de autenticación si es necesario
       localStorage.setItem('authToken', data.token);
 
-      // Redirigir al usuario a la página principal o dashboard
       router.push('/clientes');
     } catch (error) {
       setError('Hubo un problema al comunicarse con el servidor. Intenta nuevamente.');

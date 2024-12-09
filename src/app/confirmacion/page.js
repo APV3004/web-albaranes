@@ -1,4 +1,4 @@
-'use client'; // Asegura que este componente se ejecute en el cliente
+'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -7,8 +7,7 @@ export default function ConfirmPage() {
   const [confirmationCode, setConfirmationCode] = useState(['', '', '', '', '', '']);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const router = useRouter(); // Usamos router para redirigir al usuario
-
+  const router = useRouter(); 
   const handleInputChange = (e, index) => {
     const value = e.target.value;
 
@@ -49,7 +48,7 @@ export default function ConfirmPage() {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`, // Asegúrate de que el token esté aquí
+          'Authorization': `Bearer ${token}`, 
         },
         body: JSON.stringify({ code }),  // Enviar el código de confirmación como parte del cuerpo
       });
@@ -68,7 +67,7 @@ export default function ConfirmPage() {
       if (data.acknowledged && data.modifiedCount > 0) {
         setSuccessMessage('Correo confirmado exitosamente. Ahora puedes iniciar sesión.');
         setTimeout(() => {
-          router.push('/login'); // Redirige al login después de la confirmación
+          router.push('/login');
         }, 3000);
       } else {
         setError('Hubo un problema al confirmar el correo.');

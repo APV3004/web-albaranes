@@ -13,7 +13,7 @@ export default function EditClientPage() {
   const [province, setProvince] = useState('');
   const [cif, setCif] = useState('');
   const [error, setError] = useState('');
-  const [showModal, setShowModal] = useState(false); // Estado para el modal
+  const [showModal, setShowModal] = useState(false);
   const router = useRouter();
   const { clientId } = useParams();
 
@@ -92,7 +92,7 @@ export default function EditClientPage() {
         throw new Error('No se pudo actualizar el cliente');
       }
 
-      setShowModal(true); // Mostrar el modal al completar la edición
+      setShowModal(true); 
     } catch (err) {
       setError(err.message || 'Hubo un problema al actualizar el cliente');
     }

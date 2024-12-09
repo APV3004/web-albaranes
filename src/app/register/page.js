@@ -1,7 +1,7 @@
-'use client'; // Asegura que este componente se ejecute en el cliente
+'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation'; // Usamos router para redirigir al usuario
+import { useRouter } from 'next/navigation'; 
 
 export default function RegisterPage() {
   const [email, setEmail] = useState('');

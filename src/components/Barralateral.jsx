@@ -21,11 +21,11 @@ export default function Barralateral() {
 
   // No mostrar el botón si estamos en una página de creación o edición
   const hideButton =
-    pathname === '/crear-cliente' || // Página de creación
-    pathname.match(/\/clientes\/[^/]+$/) ||// Detecta si estamos viendo o editando un cliente
-    pathname === '/crear-proyecto' || // Página de creación
-    pathname.match(/\/proyectos\/[^/]+$/) ||// Detecta si estamos viendo o editando un proyecto
-    pathname === '/crear-albaran'; // Página de creación
+    pathname === '/crear-cliente' || 
+    pathname.match(/\/clientes\/[^/]+$/) ||
+    pathname === '/crear-proyecto' || 
+    pathname.match(/\/proyectos\/[^/]+$/) ||
+    pathname === '/crear-albaran'; 
 
   return (
     <aside className="bg-blue-600 text-white w-64 min-h-screen p-6 flex flex-col justify-between">

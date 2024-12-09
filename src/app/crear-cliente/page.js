@@ -1,4 +1,4 @@
-'use client'; // Asegura que este componente se ejecute en el cliente
+'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -19,7 +19,7 @@ export default function CreateClientPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Verificamos que todos los campos estén llenos
+    // Se verifica que todos los campos estén llenos
     if (!name || !street || !number || !postal || !city || !province || !cif) {
       setError('Por favor, llena todos los campos obligatorios');
       return;
@@ -44,14 +44,13 @@ export default function CreateClientPage() {
         return;
       }
 
-      // Realizamos la solicitud POST para crear el cliente
       const response = await fetch('https://bildy-rpmaya.koyeb.app/api/client', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify(clientData), // Enviamos los datos en formato JSON
+        body: JSON.stringify(clientData), // Envio los datos en formato JSON
       });
 
       if (!response.ok) {
@@ -93,7 +92,7 @@ export default function CreateClientPage() {
       )}
 
       <form onSubmit={handleSubmit} className="flex justify-center gap-6">
-        {/* Rectángulo central para los campos principales */}
+        
         <div className="w-full sm:w-2/3 lg:w-3/4 bg-gray-50 p-6 rounded-lg shadow-lg flex flex-col justify-between">
           <div>
             <div className="mb-4">

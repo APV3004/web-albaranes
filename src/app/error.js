@@ -1,4 +1,4 @@
-'use client'; // Indica que este es un Componente de Cliente
+'use client'; 
 
 import React from 'react';
 

@@ -1,5 +1,4 @@
-'use client';  // Asegura que este componente se ejecute en el cliente
-
+'use client'; 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
@@ -31,7 +30,7 @@ export default function Header() {
         </h1>
 
         {/* Título dinámico que se alinea justo después de la barra lateral */}
-        <h2 className="text-xl ml-16">{pageTitle}</h2>  {/* ml-64 para alinear con el final de la barra lateral */}
+        <h2 className="text-xl ml-16">{pageTitle}</h2>  
       </div>
     </header>
   );
